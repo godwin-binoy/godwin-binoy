@@ -5,10 +5,10 @@ Welcome to my GitHub profile! Here's a little about me:
 ## ✨ About Me
 - **Started Coding**: I began my coding journey at the age of 11, and it’s been an incredible adventure ever since.
 - **Self-Taught Developer**: I have honed my skills through dedication and passion for learning.
-- **Current Focus**: I'm currently diving deep into **Java** while building exciting projects and learning new concepts.
+- **Current Focus**: I'm currently diving deep into **C and C++** while building exciting projects and learning new concepts.
 
 ## 🛠️ Skills & Tools
-- **Languages**: HTML, CSS, JavaScript, Python, Bash, and Java (currently learning).
+- **Languages**: HTML CSS JavaScript Python Bash C C++ Java .
 - **Platforms**: Linux enthusiast who loves exploring and customizing different distributions.
 - **Interest**: Contributing to and supporting **open-source projects**.
 

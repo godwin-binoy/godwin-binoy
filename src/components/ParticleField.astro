@@ -1,0 +1,42 @@
+<canvas id="particle-canvas" class="fixed inset-0 z-0 pointer-events-none" aria-hidden="true"></canvas>
+<script>
+  const canvas = document.getElementById('particle-canvas') as HTMLCanvasElement;
+  const ctx = canvas.getContext('2d')!;
+  let particles: {x:number;y:number;vx:number;vy:number;size:number}[] = [];
+  let animId: number;
+  const isMobile = window.innerWidth < 768;
+  const COUNT = isMobile ? 30 : 70;
+  const DIST = isMobile ? 100 : 150;
+
+  function resize() { canvas.width = innerWidth; canvas.height = innerHeight; }
+  function init() {
+    particles = Array.from({length: COUNT}, () => ({
+      x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+      vx: (Math.random()-0.5)*0.4, vy: (Math.random()-0.5)*0.4,
+      size: Math.random()*1.5+0.5
+    }));
+  }
+  function draw() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for(let i=0;i<particles.length;i++){
+      const p=particles[i];
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>canvas.width)p.vx*=-1;
+      if(p.y<0||p.y>canvas.height)p.vy*=-1;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+      ctx.fillStyle='rgba(99,102,241,0.4)'; ctx.fill();
+      for(let j=i+1;j<particles.length;j++){
+        const dx=particles[j].x-p.x, dy=particles[j].y-p.y;
+        const d=Math.sqrt(dx*dx+dy*dy);
+        if(d<DIST){
+          ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(particles[j].x,particles[j].y);
+          ctx.strokeStyle=`rgba(99,102,241,${0.08*(1-d/DIST)})`; ctx.lineWidth=0.5; ctx.stroke();
+        }
+      }
+    }
+    animId=requestAnimationFrame(draw);
+  }
+  resize(); init(); draw();
+  addEventListener('resize',()=>{resize();init();});
+  document.addEventListener('visibilitychange',()=>{document.hidden?cancelAnimationFrame(animId):draw();});
+</script>

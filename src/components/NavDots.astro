@@ -1,0 +1,8 @@
+---
+const sections = ['hero', 'about', 'journey', 'skills', 'projects', 'connect'];
+---
+<nav class="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-4" aria-label="Section navigation">
+  {sections.map((id, i) => (
+    <a href={`#${id}`} class="nav-dot" data-nav={i} aria-label={`Go to ${id}`} title={id.charAt(0).toUpperCase() + id.slice(1)}></a>
+  ))}
+</nav>

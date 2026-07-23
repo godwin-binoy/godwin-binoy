@@ -1,0 +1,40 @@
+---
+const milestones = [
+  { age: 'Age 11', title: 'The Start', description: "Began with Google's Grasshopper, learning JavaScript and basic programming logic. Moved into web development, then Python.", icon: '🌱', color: 'from-emerald-500 to-teal-500' },
+  { age: 'Age 15', title: 'The Transition', description: 'Permanently switched to Linux. Began exploring distros, CLIs, and learning to tweak and optimize systems at a deeper level.', icon: '🐧', color: 'from-accent to-purple-500' },
+  { age: 'Present', title: 'The Evolution', description: 'Focused on C++ and Rust, local AI models, modern dev workflows, and contributing to open-source projects.', icon: '🚀', color: 'from-orange-500 to-pink-500' },
+];
+---
+<section id="journey" class="reel-section" data-reel="2">
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute bottom-1/4 left-1/4 w-80 h-80 bg-purple-600/5 rounded-full blur-[120px]"></div>
+  </div>
+  <div class="relative z-10 w-full max-w-4xl mx-auto px-6 py-20">
+    <div class="text-center mb-14">
+      <p class="section-label justify-center">Timeline</p>
+      <h2 class="reveal text-3xl sm:text-5xl font-bold text-white">The <span class="gradient-text">Journey</span></h2>
+    </div>
+    <div class="relative">
+      <div class="absolute left-6 sm:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent/50 via-purple-500/30 to-transparent sm:-translate-x-px"></div>
+      <div class="space-y-12">
+        {milestones.map((m, i) => (
+          <div class={`reveal relative flex flex-col sm:flex-row items-start gap-6 ${i % 2 === 1 ? 'sm:flex-row-reverse' : ''}`} style={`transition-delay:${i * 150}ms`}>
+            <div class="absolute left-6 sm:left-1/2 w-3 h-3 -translate-x-1/2 rounded-full bg-accent shadow-[0_0_12px_rgba(99,102,241,0.6)] mt-2"></div>
+            <div class={`ml-12 sm:ml-0 sm:w-[calc(50%-2rem)] ${i % 2 === 1 ? 'sm:mr-auto sm:pr-8' : 'sm:ml-auto sm:pl-8'}`}>
+              <div class="glass-card glass-card-hover p-6">
+                <div class="flex items-center gap-3 mb-3">
+                  <span class="text-2xl">{m.icon}</span>
+                  <div>
+                    <span class={`text-xs font-mono px-2 py-0.5 rounded-full bg-gradient-to-r ${m.color} text-white`}>{m.age}</span>
+                    <h3 class="text-lg font-semibold text-white mt-1">{m.title}</h3>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">{m.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

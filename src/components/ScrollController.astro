@@ -1,0 +1,37 @@
+<script>
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold:0.1, rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  const skillObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        const bar = e.target as HTMLElement;
+        const w = bar.dataset.width;
+        if(w) setTimeout(()=>{bar.style.width=w;},300);
+      }
+    });
+  }, {threshold:0.5});
+  document.querySelectorAll('.skill-bar-fill').forEach(el => skillObs.observe(el));
+
+  const sections = document.querySelectorAll('[data-reel]');
+  const dots = document.querySelectorAll('[data-nav]');
+  const secObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        const idx = e.target.getAttribute('data-reel');
+        dots.forEach(d=>d.classList.remove('active'));
+        document.querySelector(`[data-nav="${idx}"]`)?.classList.add('active');
+      }
+    });
+  }, {threshold:0.5});
+  sections.forEach(s => secObs.observe(s));
+
+  document.addEventListener('keydown', (e) => {
+    const c = document.querySelector('.reel-container');
+    if(!c) return;
+    if(e.key==='ArrowDown'||e.key==='PageDown'){e.preventDefault();c.scrollBy({top:innerHeight,behavior:'smooth'});}
+    if(e.key==='ArrowUp'||e.key==='PageUp'){e.preventDefault();c.scrollBy({top:-innerHeight,behavior:'smooth'});}
+  });
+</script>

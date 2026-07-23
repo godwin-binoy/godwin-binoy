@@ -1,0 +1,56 @@
+---
+const coreSkills = [
+  { name: 'Python', level: 85 },
+  { name: 'C++', level: 60 },
+  { name: 'Rust', level: 35 },
+  { name: 'CLI / Bash', level: 90 },
+];
+const systemTags = ['Fedora', 'GNOME', 'Silverblue', 'BlueBuild', 'Systemd', 'Flatpak'];
+const explored = ['Android Dev (Java/Kotlin)', 'C Programming', 'Arch Linux', 'Alpine Linux', 'Debian', 'Ubuntu', 'Local AI (14B params)', 'Vibe Coding', 'Web Dev'];
+---
+<section id="skills" class="reel-section" data-reel="3">
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-1/4 right-1/3 w-64 h-64 bg-blue-600/5 rounded-full blur-[100px]"></div>
+  </div>
+  <div class="relative z-10 w-full max-w-5xl mx-auto px-6 py-20">
+    <div class="text-center mb-14">
+      <p class="section-label justify-center">Arsenal</p>
+      <h2 class="reveal text-3xl sm:text-5xl font-bold text-white">Tech <span class="gradient-text">Stack</span></h2>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-10">
+      <div class="reveal space-y-6">
+        <h3 class="text-sm font-mono text-gray-400 uppercase tracking-wider mb-4">Core Languages & Tools</h3>
+        {coreSkills.map((skill) => (
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm font-medium text-gray-200">{skill.name}</span>
+              <span class="text-xs font-mono text-gray-500">{skill.level}%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" style="width:0%" data-width={`${skill.level}%`}></div>
+            </div>
+          </div>
+        ))}
+        <h3 class="text-sm font-mono text-gray-400 uppercase tracking-wider mt-8 mb-3">Daily System</h3>
+        <div class="flex flex-wrap gap-2">
+          {systemTags.map((tag) => (
+            <span class="px-3 py-1.5 rounded-lg glass-card text-xs font-mono text-accent-light border-accent/20">{tag}</span>
+          ))}
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:200ms">
+        <h3 class="text-sm font-mono text-gray-400 uppercase tracking-wider mb-4">Explored & Experimented</h3>
+        <div class="glass-card p-6">
+          <div class="flex flex-wrap gap-3">
+            {explored.map((item) => (
+              <span class="px-4 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-gray-300 hover:border-accent/30 hover:text-white transition-all duration-300 cursor-default">{item}</span>
+            ))}
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5">
+            <p class="text-xs text-gray-500 font-mono">// Always exploring new tech as it emerges</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

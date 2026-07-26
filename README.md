@@ -1,4 +1,14 @@
-modern development workflows.
+# Hi, I'm Godwin Binoy
+
+A self-taught developer who loves and supports open-source tools. I enjoy customizing and optimizing my own system, exploring command-line environments, and keeping up with the fast-paced evolution of technology.
+
+---
+
+### The Journey
+
+* **Age 11 (The Start):** My path began with Google's Grasshopper (which shut down in 2023), where I picked up JavaScript and basic programming logic. From there, I moved into web development and then learned Python.
+* **Age 15 (The Transition):** I permanently switched to Linux, which changed how I interact with computers. I began exploring different distros and command-line interfaces, and learning to tweak and optimize systems.
+* **Present:** Currently, I am focused on learning C++ and Rust while staying updated with the latest technological shifts, including local AI and modern development workflows.
 
 ---
 
